@@ -23,17 +23,17 @@ public class TextureProvider implements ITextureProvider {
 
 	public void bind(GL10 gl) {
         // Allocate texture pointers
-		int numOfObjects = WorldObject.values().length;
+		int numOfObjects = Texture.values().length;
 		mTexPointers = new int[numOfObjects];
 		// Generate texture pointers
 		gl.glGenTextures(numOfObjects, mTexPointers, 0);
 		
-		for (WorldObject obj: WorldObject.values()) {
+		for (Texture obj: Texture.values()) {
 			bind(gl, obj);
         }
 	}
 	
-    private void bind(GL10 gl, WorldObject object) {
+    private void bind(GL10 gl, Texture object) {
     	//Get the texture from the Android resource directory
     	InputStream is = mContext.getResources().openRawResource(object.getResId());
     	Bitmap bitmap = BitmapFactory.decodeStream(is);
@@ -56,7 +56,7 @@ public class TextureProvider implements ITextureProvider {
     }
     
     @Override
-	public int getTexturePointer(WorldObject object) {
+	public int getTexturePointer(Texture object) {
     	return mTexPointers[object.ordinal()];
     }
 }

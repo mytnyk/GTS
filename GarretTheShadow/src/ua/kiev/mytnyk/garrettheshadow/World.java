@@ -15,8 +15,9 @@ public class World {
 	private int w;
 	private int h;
 	
-	private WorldObject worldObj[][]; // world objects on map
-	private Square renderObj[][]; // rendering objects on map
+	private Terrain terrain[][]; // terrain on map
+	private Object worldObj[][]; // world objects on map
+	private Square renderObj;
 	
 	private int mHumanX = 0;
 	private int mHumanY = 0;
@@ -45,13 +46,14 @@ public class World {
 	}
 	
 	private void Init() {
-		renderObj = new Square[w][h];
-		worldObj = new WorldObject[w][h];
+		renderObj = new Square();
+		terrain = new Terrain[w][h];
+		worldObj = new Object[w][h];
 		for(int x = 0; x < w; x++) {
 			for(int y = 0; y < h; y++) {
-				renderObj[x][y] = new Square();
-				worldObj[x][y] = WorldObject.getByCode(map[x][y]);
-				if (worldObj[x][y] == WorldObject.HUMAN) {
+				terrain[x][y] = Terrain.getByCode(map[x][y]);
+				worldObj[x][y] = Object.getByCode(map[x][y]);
+				if (worldObj[x][y] == Object.HUMAN) {
 					mHumanX = x;
 					mHumanY = y;
 				}
@@ -68,16 +70,16 @@ public class World {
 	}
 	
 	private boolean canMove(int x, int y) {
-		return worldObj[x][y] != WorldObject.WALL;
+		return terrain[x][y] != Terrain.WALL;
 	}
 	
 	private void move(int dx, int dy) {
 		if (canMove(mHumanX + dx, mHumanY + dy)) {
 			synchronized(this) {
-				worldObj[mHumanX][mHumanY] = WorldObject.ROAD;
+				worldObj[mHumanX][mHumanY] = null;
 				mHumanX += dx;
 				mHumanY += dy;
-				worldObj[mHumanX][mHumanY] = WorldObject.HUMAN;
+				worldObj[mHumanX][mHumanY] = Object.HUMAN;
 				//Log.d("MOVE", "Right");
 			}
 		}
@@ -103,9 +105,15 @@ public class World {
 		//Log.d("DRAW", "Start");
 		for(int x = 0; x < w; x++) {
 			for(int y = 0; y < h; y++) {
-				int ptr = texProvider.getTexturePointer(worldObj[x][y]);
+				Texture tex = null;
+				if (worldObj[x][y] == null)
+					tex = terrain[x][y].getTexture();
+				else
+					tex = worldObj[x][y].getTexture();
+				
+				int ptr = texProvider.getTexturePointer(tex); 
 				//gl.glTranslatef(2.f*x, 2.f*y, 0f);
-				renderObj[x][y].draw(gl, ptr);
+				renderObj.draw(gl, ptr);
 				//gl.glTranslatef(-2.f*x, -2.f*y, 0f);
 				gl.glTranslatef(0f, 1.f, 0f);
 			}
