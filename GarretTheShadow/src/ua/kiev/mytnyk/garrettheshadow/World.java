@@ -22,7 +22,7 @@ public class World {
 	private int mHumanX = 0;
 	private int mHumanY = 0;
 	
-	public World(Context context, WorldLevel level) {
+	public World(Context context, Level level) {
 		
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(context.getAssets().open(level.getFileName())));
@@ -52,10 +52,12 @@ public class World {
 		for(int x = 0; x < w; x++) {
 			for(int y = 0; y < h; y++) {
 				terrain[x][y] = Terrain.getByCode(map[x][y]);
-				worldObj[x][y] = Object.getByCode(map[x][y]);
-				if (worldObj[x][y] == Object.HUMAN) {
+				worldObj[x][y] = ObjectType.createObject(map[x][y]);
+				if (worldObj[x][y] != null)	{
+				if (worldObj[x][y].getType() == ObjectType.HUMAN) {
 					mHumanX = x;
 					mHumanY = y;
+				}
 				}
 			}
 		}
@@ -76,10 +78,11 @@ public class World {
 	private void move(int dx, int dy) {
 		if (canMove(mHumanX + dx, mHumanY + dy)) {
 			synchronized(this) {
+				Object human = worldObj[mHumanX][mHumanY];
 				worldObj[mHumanX][mHumanY] = null;
 				mHumanX += dx;
 				mHumanY += dy;
-				worldObj[mHumanX][mHumanY] = Object.HUMAN;
+				worldObj[mHumanX][mHumanY] = human;
 				//Log.d("MOVE", "Right");
 			}
 		}

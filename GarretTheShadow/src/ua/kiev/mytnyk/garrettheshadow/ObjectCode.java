@@ -5,6 +5,7 @@ public enum ObjectCode {
 	WALL (1),
 	TREE (2),
 	END  (5),
+	KEY  (6),
 	HUMAN(8);
 	
 	final private int mCode;

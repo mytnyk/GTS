@@ -17,7 +17,7 @@ public class Scene implements GLSurfaceView.Renderer {
 	private float mViewPoint = -20f;
 	
 	public Scene(Context context) {
-		mWorld = new World(context, WorldLevel.LEVEL1);
+		mWorld = new World(context, Level.LEVEL1);
 		mTexProvider = new TextureProvider(context);
 	}
 	

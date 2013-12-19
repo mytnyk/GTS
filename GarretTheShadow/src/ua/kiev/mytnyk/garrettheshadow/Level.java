@@ -1,11 +1,11 @@
 package ua.kiev.mytnyk.garrettheshadow;
 
-public enum WorldLevel {
+public enum Level {
 	LEVEL1 ("level1.txt");
 	 
 	private String mLevelMapFileName;  // file name of a level
 		 
-	private WorldLevel(String name) {
+	private Level(String name) {
 		mLevelMapFileName = name;
 	}
 	 

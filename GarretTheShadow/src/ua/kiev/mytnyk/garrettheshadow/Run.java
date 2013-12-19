@@ -16,6 +16,9 @@ public class Run extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
+		Texture tex = ObjectType.test().getTexture();
+		ObjectType objt = ObjectType.test().getType();
+		
 		Scene scene = new Scene(this);
 		Control ctrl = new Control(scene);
 		
