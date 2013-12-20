@@ -17,7 +17,7 @@ public class World {
 	
 	private Terrain terrain[][]; // terrain on map
 	private Object worldObj[][]; // world objects on map
-	private Square renderObj;
+	private Square renderObj = new Square();
 	
 	private int mHumanX = 0;
 	private int mHumanY = 0;
@@ -45,19 +45,24 @@ public class World {
 		Init();
 	}
 	
+	private void SetObject(int x, int y, Object obj) {
+		worldObj[x][y] = obj;
+		//obj.
+	}
+	
 	private void Init() {
-		renderObj = new Square();
 		terrain = new Terrain[w][h];
 		worldObj = new Object[w][h];
 		for(int x = 0; x < w; x++) {
 			for(int y = 0; y < h; y++) {
 				terrain[x][y] = Terrain.getByCode(map[x][y]);
-				worldObj[x][y] = ObjectType.createObject(map[x][y]);
-				if (worldObj[x][y] != null)	{
-				if (worldObj[x][y].getType() == ObjectType.HUMAN) {
-					mHumanX = x;
-					mHumanY = y;
-				}
+				Object obj = ObjectType.createObject(map[x][y]);
+				if (obj != null) {
+					SetObject(x, y, obj);
+					if (obj.getType() == ObjectType.HUMAN) {
+						mHumanX = x;
+						mHumanY = y;
+					}
 				}
 			}
 		}

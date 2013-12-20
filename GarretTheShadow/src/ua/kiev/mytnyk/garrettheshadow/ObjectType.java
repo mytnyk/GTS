@@ -27,10 +27,5 @@ public enum ObjectType {
         }
         return null;
     }
-    
-    static public Object test()
-    {
-    	return createObject(8);
-    }
 }
 
