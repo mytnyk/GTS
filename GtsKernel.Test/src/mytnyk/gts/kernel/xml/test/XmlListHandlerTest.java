@@ -1,4 +1,4 @@
-package mytnyk.gts.kernel.test;
+package mytnyk.gts.kernel.xml.test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

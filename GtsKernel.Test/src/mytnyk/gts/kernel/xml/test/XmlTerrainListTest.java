@@ -1,4 +1,4 @@
-package mytnyk.gts.kernel.test;
+package mytnyk.gts.kernel.xml.test;
 
 import static org.junit.Assert.*;
 

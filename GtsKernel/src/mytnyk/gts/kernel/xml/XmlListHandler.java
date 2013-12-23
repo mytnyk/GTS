@@ -39,8 +39,6 @@ public class XmlListHandler extends DefaultHandler {
 	@Override    
 	public void characters(char ch[], int start, int length) throws SAXException {
 		String value = new String(ch, start, length).trim();
-		if (value.length() == 0)
-			return; // ignore white space
 		mProperties.put(mTags.peek(), value);
 	}
 }

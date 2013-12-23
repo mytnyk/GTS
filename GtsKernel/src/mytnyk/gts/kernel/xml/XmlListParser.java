@@ -17,13 +17,13 @@ public class XmlListParser implements IListParser {
 	@Override
 	public void parse(InputStream is, IListOfObjects list) {
 
-		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();    
+		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
 		try {
 			SAXParser saxParser = saxParserFactory.newSAXParser();
 			XmlListHandler handler = new XmlListHandler(list);
 			saxParser.parse(is, handler);
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Failed to parse input stream!", e);
 		}
 	}
 }
