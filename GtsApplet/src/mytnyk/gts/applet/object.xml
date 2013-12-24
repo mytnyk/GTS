@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Objects>
+	<Object>
+		<Type>Key</Type>
+		<Behavior>Static</Behavior>
+	</Object>
+	<Object>
+		<Type>Creature</Type>
+		<Behavior>Chaotic</Behavior>
+		<Terrain>Road</Terrain>>
+		<Speed>Slow</Speed>
+		<Kill>Human</Kill>
+	</Object>
+	<Object>
+		<Type>Human</Type>
+		<Behavior>Manual</Behavior>
+		<Terrain>Road Tree</Terrain>>
+		<Speed>Fast</Speed>
+		<Take>Key</Take>
+	</Object>
+</Objects>

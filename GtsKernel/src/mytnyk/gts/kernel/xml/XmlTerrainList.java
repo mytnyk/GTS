@@ -9,7 +9,7 @@ import mytnyk.gts.kernel.Terrain;
 public class XmlTerrainList implements IListOfObjects {
 
 	static final private String mTerrainTag = "Terrain";
-	static final private String mTerrainName = "Name";
+	static final private String mTerrainName = "Type";
 
 	final private ArrayList<Terrain> mTerrainList = new ArrayList<Terrain>();
 

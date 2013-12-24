@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Terrains>
-    <Terrain>
-        <Name>Road</Name>
-    </Terrain>
-    <Terrain>
-        <Name>Tree</Name>
-    </Terrain>
-    <Terrain>
-        <Name>Wall</Name>
-    </Terrain>
+	<Terrain>
+		<Type>Road</Type>
+	</Terrain>
+	<Terrain>
+		<Type>Tree</Type>
+	</Terrain>
+	<Terrain>
+		<Type>Wall</Type>
+	</Terrain>
 </Terrains>

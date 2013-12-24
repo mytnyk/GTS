@@ -19,7 +19,7 @@ public class XmlTerrainListTest {
 		assertEquals("Terrain", list.getObjectTag());
 
 		Hashtable<String, String> ht = new Hashtable<String, String>();
-		ht.put("Name", "highway");
+		ht.put("Type", "highway");
 
 		list.add(ht);
 
