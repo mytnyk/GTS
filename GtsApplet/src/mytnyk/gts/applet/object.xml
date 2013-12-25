@@ -7,14 +7,14 @@
 	<Object>
 		<Type>Creature</Type>
 		<Behavior>Chaotic</Behavior>
-		<Terrain>Road</Terrain>>
+		<Terrain>Road</Terrain>
 		<Speed>Slow</Speed>
 		<Kill>Human</Kill>
 	</Object>
 	<Object>
 		<Type>Human</Type>
 		<Behavior>Manual</Behavior>
-		<Terrain>Road Tree</Terrain>>
+		<Terrain>Road Tree</Terrain>
 		<Speed>Fast</Speed>
 		<Take>Key</Take>
 	</Object>

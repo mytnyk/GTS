@@ -8,24 +8,24 @@ import mytnyk.gts.kernel.Terrain;
 
 public class XmlTerrainList implements IListOfObjects {
 
-	static final private String mTerrainTag = "Terrain";
-	static final private String mTerrainName = "Type";
+	static final private String mTag = "Terrain";
+	static final private String mType = "Type";
 
-	final private ArrayList<Terrain> mTerrainList = new ArrayList<Terrain>();
+	final private ArrayList<Terrain> mList = new ArrayList<Terrain>();
 
 	public final ArrayList<Terrain> getList() {
-		return mTerrainList;
+		return mList;
 	}
 	
 	@Override
 	public String getObjectTag() {
-		return mTerrainTag;
+		return mTag;
 	}
 
 	@Override
 	public void add(Hashtable<String, String> properties) {
-		String terrainName = properties.get(mTerrainName);
-		Terrain t = new Terrain(terrainName);
-		mTerrainList.add(t);		
+		String type = properties.get(mType);
+		Terrain t = new Terrain(type);
+		mList.add(t);		
 	}
 }
