@@ -2,7 +2,7 @@ package mytnyk.gts.kernel;
 
 import java.util.ArrayList;
 
-public class Object {
+final public class Object {
 
 	final private String mType;
 	final private String mBehavior;
@@ -10,6 +10,17 @@ public class Object {
 	private String mSpeed;
 	private ArrayList<String> mTake = new ArrayList<String>();
 	private ArrayList<String> mKill = new ArrayList<String>();
+	
+	@SuppressWarnings("unchecked")
+	@Override 
+	public Object clone() throws CloneNotSupportedException {
+		Object obj = new Object(mType, mBehavior);
+		obj.mTerrain = (ArrayList<String>) mTerrain.clone();
+		obj.mSpeed = mSpeed;
+		obj.mTake = (ArrayList<String>) mTake.clone();
+		obj.mKill = (ArrayList<String>) mKill.clone();
+		return obj;
+	}
 	
 	public Object(String type, String behavior) {
 		mType = type;

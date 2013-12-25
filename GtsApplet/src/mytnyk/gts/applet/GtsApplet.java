@@ -32,6 +32,7 @@ public class GtsApplet extends Applet {
 		XmlListParser xmlparser = new XmlListParser();
 		xmlparser.parse(is, xmllist);
 		ArrayList<Object> list = xmllist.getList();
+		list.
 
 		for(Object t : list)
 			System.out.println(t.getType());

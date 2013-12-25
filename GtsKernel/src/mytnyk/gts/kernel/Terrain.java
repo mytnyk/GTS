@@ -1,6 +1,6 @@
 package mytnyk.gts.kernel;
 
-public class Terrain {
+final public class Terrain {
 	final private String mType;
 	
 	public Terrain(String type) {

@@ -1,6 +1,6 @@
 package mytnyk.gts.kernel;
 
-public class Texture {
+final public class Texture {
 	final private String mName;
 	
 	public Texture(String name) {
