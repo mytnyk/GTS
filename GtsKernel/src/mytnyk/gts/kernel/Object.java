@@ -67,4 +67,7 @@ final public class Object {
 		mKill.add(obj);
 	}
 	
+	public String toString() {
+		return mType;
+	}
 }

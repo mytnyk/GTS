@@ -13,4 +13,10 @@
 		<Terrain>Road</Terrain>
 		<Object>Human</Object>
 	</Code>
+	<Code>
+		<Value>6</Value>
+		<Terrain>Road</Terrain>
+		<Object>Key Creature</Object>
+	</Code>
+	
 </Codes>

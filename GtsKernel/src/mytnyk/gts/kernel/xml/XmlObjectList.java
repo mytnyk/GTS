@@ -3,7 +3,6 @@ package mytnyk.gts.kernel.xml;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import mytnyk.gts.kernel.IListOfObjects;
 import mytnyk.gts.kernel.Object;
 
 public class XmlObjectList implements IListOfObjects {

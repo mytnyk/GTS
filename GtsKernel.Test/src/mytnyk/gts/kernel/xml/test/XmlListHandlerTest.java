@@ -7,7 +7,7 @@ import java.util.Hashtable;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import mytnyk.gts.kernel.IListOfObjects;
+import mytnyk.gts.kernel.xml.IListOfObjects;
 import mytnyk.gts.kernel.xml.XmlListHandler;
 
 import org.junit.Test;

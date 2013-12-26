@@ -3,7 +3,6 @@ package mytnyk.gts.kernel.xml;
 import java.util.Hashtable;
 import java.util.Stack;
 
-import mytnyk.gts.kernel.IListOfObjects;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

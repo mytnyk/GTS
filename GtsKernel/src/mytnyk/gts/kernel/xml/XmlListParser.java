@@ -7,8 +7,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import mytnyk.gts.kernel.IListParser;
-import mytnyk.gts.kernel.IListOfObjects;
 
 import org.xml.sax.SAXException;
 

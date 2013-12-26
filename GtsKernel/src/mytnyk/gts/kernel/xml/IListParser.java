@@ -1,4 +1,4 @@
-package mytnyk.gts.kernel;
+package mytnyk.gts.kernel.xml;
 
 import java.io.InputStream;
 

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 import mytnyk.gts.kernel.Code;
-import mytnyk.gts.kernel.IListOfObjects;
 
 public class XmlCodeList implements IListOfObjects {
 

@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Hashtable;
 
-import mytnyk.gts.kernel.IListOfObjects;
+import mytnyk.gts.kernel.xml.IListOfObjects;
 import mytnyk.gts.kernel.xml.XmlListParser;
 
 import org.junit.Rule;

@@ -1,6 +1,7 @@
 package mytnyk.gts.kernel;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ListIterator;
 
 final public class Site {
@@ -12,7 +13,7 @@ final public class Site {
 		mTerrain = t;
 	}
 
-	public final ListIterator<Object> getObjects() {
+	public ListIterator<Object> getObjects() {
 		return mObjects.listIterator();
 	}
 
@@ -20,8 +21,18 @@ final public class Site {
 		mObjects.add(o);
 	}
 
+	public boolean hasObject(String obj) {
+		for (Object o : mObjects)
+			if (o.getType().equalsIgnoreCase(obj))
+				return true;
+		return false;
+	}
+
 	public Terrain getTerrain() {
 		return mTerrain;
 	}
 
+	public String toString() {
+		return mTerrain.getType() + " " + Arrays.toString(mObjects.toArray());
+	}
 }
