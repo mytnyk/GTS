@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Codes>
+	<Code>
+		<Value>0</Value>
+		<Terrain>Road</Terrain>
+	</Code>
+	<Code>
+		<Value>1</Value>
+		<Terrain>Wall</Terrain>
+	</Code>
+	<Code>
+		<Value>5</Value>
+		<Terrain>Road</Terrain>
+		<Object>Human</Object>
+	</Code>
+</Codes>
