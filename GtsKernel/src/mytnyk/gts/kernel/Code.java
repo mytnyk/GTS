@@ -7,7 +7,7 @@ public class Code {
 
 	final private String mValue;
 	final private String mTerrain;
-	final ArrayList<String> mObjectList = new ArrayList<String>();
+	final ArrayList<String> mObjectList = new ArrayList<>();
 
 	public Code(String value, String terrain) {
 		mValue = value;

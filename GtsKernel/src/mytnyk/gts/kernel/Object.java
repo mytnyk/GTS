@@ -6,25 +6,27 @@ final public class Object {
 
 	final private String mType;
 	final private String mBehavior;
-	private ArrayList<String> mTerrain = new ArrayList<String>();
+	private ArrayList<String> mTerrain;
 	private String mSpeed;
-	private ArrayList<String> mTake = new ArrayList<String>();
-	private ArrayList<String> mKill = new ArrayList<String>();
-	
-	@SuppressWarnings("unchecked")
-	@Override 
-	public Object clone() throws CloneNotSupportedException {
-		Object obj = new Object(mType, mBehavior);
-		obj.mTerrain = (ArrayList<String>) mTerrain.clone();
-		obj.mSpeed = mSpeed;
-		obj.mTake = (ArrayList<String>) mTake.clone();
-		obj.mKill = (ArrayList<String>) mKill.clone();
-		return obj;
+	private ArrayList<String> mTake;
+	private ArrayList<String> mKill;
+
+	// Deep copy constructor
+	public Object(Object obj) {
+		mType = obj.mType;
+		mBehavior = obj.mBehavior;
+		mTerrain = new ArrayList<>(obj.mTerrain);
+		mSpeed = obj.mSpeed;
+		mTake = new ArrayList<>(obj.mTake);
+		mKill = new ArrayList<>(obj.mKill);
 	}
-	
+
 	public Object(String type, String behavior) {
 		mType = type;
 		mBehavior = behavior;
+		mTerrain = new ArrayList<>();
+		mTake = new ArrayList<>();
+		mKill = new ArrayList<>();
 	}
 
 	public String getType() {
@@ -50,7 +52,7 @@ final public class Object {
 	public void addTerrain(String terrain) {
 		mTerrain.add(terrain);
 	}
-	
+
 	public boolean canTake(String obj) {
 		return mTake.contains(obj);
 	}
@@ -58,7 +60,7 @@ final public class Object {
 	public void addTake(String obj) {
 		mTake.add(obj);
 	}
-	
+
 	public boolean canKill(String obj) {
 		return mKill.contains(obj);
 	}
@@ -66,7 +68,8 @@ final public class Object {
 	public void addKill(String obj) {
 		mKill.add(obj);
 	}
-	
+
+	@Override
 	public String toString() {
 		return mType;
 	}

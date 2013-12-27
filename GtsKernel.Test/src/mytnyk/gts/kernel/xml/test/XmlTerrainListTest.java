@@ -12,20 +12,21 @@ import org.junit.Test;
 
 public class XmlTerrainListTest {
 
+	@SuppressWarnings("static-method")
 	@Test
 	public void test() {
 		XmlTerrainList list = new XmlTerrainList();
 
-		assertEquals("Terrain", list.getObjectTag());
+		assertEquals("Terrain", list.getObjectTag()); //$NON-NLS-1$
 
-		Hashtable<String, String> ht = new Hashtable<String, String>();
-		ht.put("Type", "highway");
+		Hashtable<String, String> ht = new Hashtable<>();
+		ht.put("Type", "highway"); //$NON-NLS-1$ //$NON-NLS-2$
 
 		list.add(ht);
 
 		ArrayList<Terrain> l = list.getList();
 		assertEquals(l.size(), 1);
-		assertEquals(l.get(0).getType(), "highway");
+		assertEquals(l.get(0).getType(), "highway"); //$NON-NLS-1$
 	}
 
 }

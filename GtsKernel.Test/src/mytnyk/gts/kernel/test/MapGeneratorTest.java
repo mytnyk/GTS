@@ -3,6 +3,7 @@ package mytnyk.gts.kernel.test;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -19,18 +20,19 @@ public class MapGeneratorTest {
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 
+	@SuppressWarnings("static-method")
 	@Test
 	public void test() {
-		ArrayList<Code> codes = new ArrayList<Code>();
-		Code w = new Code("0", "Water");
-		Code s = new Code("1", "Sand");
+		ArrayList<Code> codes = new ArrayList<>();
+		Code w = new Code("0", "Water"); //$NON-NLS-1$ //$NON-NLS-2$
+		Code s = new Code("1", "Sand"); //$NON-NLS-1$ //$NON-NLS-2$
 		codes.add(w);
 		codes.add(s);
 
-		String str =	"0 0 0\n" +
-						"0 1 0\n";
+		String str =	"0 0 0\n" + //$NON-NLS-1$
+						"0 1 0\n"; //$NON-NLS-1$
 		MapFactory mapGen = new MapFactory(codes);
-		Code[][] m = mapGen.generate(new ByteArrayInputStream(str.getBytes()));
+		Code[][] m = mapGen.getMap(new ByteArrayInputStream(str.getBytes()));
 
 		Code[][] gm = new Code[][] { {w, w}, {w, s}, {w, w} };
 		assertTrue(Arrays.deepEquals(m, gm));
@@ -38,45 +40,47 @@ public class MapGeneratorTest {
 
 	@Test
 	public void testInvalidInput() {
-		ArrayList<Code> codes = new ArrayList<Code>();
-		codes.add(new Code("0", "Water"));
+		ArrayList<Code> codes = new ArrayList<>();
+		codes.add(new Code("0", "Water")); //$NON-NLS-1$ //$NON-NLS-2$
 		
-		String str =	"0 1\n" +
-						"0 0\n";
+		String str =	"0 1\n" + //$NON-NLS-1$
+						"0 0\n"; //$NON-NLS-1$
 
 		thrown.expect(RuntimeException.class);
-		thrown.expectMessage("Invalid code value");
+		thrown.expectMessage("Invalid code value"); //$NON-NLS-1$
 
 		MapFactory map = new MapFactory(codes);
-		map.generate(new ByteArrayInputStream(str.getBytes()));
+		map.getMap(new ByteArrayInputStream(str.getBytes()));
 	}
 	
 	@Test
 	public void testInvalidInput2() {
-		ArrayList<Code> codes = new ArrayList<Code>();
-		codes.add(new Code("0", "Water"));
+		ArrayList<Code> codes = new ArrayList<>();
+		codes.add(new Code("0", "Water")); //$NON-NLS-1$ //$NON-NLS-2$
 		
-		String str =	"0 0\n" +
-						"0\n";
+		String str =	"0 0\n" + //$NON-NLS-1$
+						"0\n"; //$NON-NLS-1$
 
 		thrown.expect(RuntimeException.class);
-		thrown.expectMessage("Input steam has different number of elements in rows");
+		thrown.expectMessage("Input steam has different number of elements in rows"); //$NON-NLS-1$
 
 		MapFactory map = new MapFactory(codes);
-		map.generate(new ByteArrayInputStream(str.getBytes()));
+		map.getMap(new ByteArrayInputStream(str.getBytes()));
 	}
 	
 	@Test
-	public void testStreamFailure() {
+	public void testStreamFailure() throws IOException {
 
 		thrown.expect(RuntimeException.class);
-		thrown.expectMessage("Failed to parse map input stream");
+		thrown.expectMessage("Failed to parse map input stream"); //$NON-NLS-1$
 
-		ByteArrayInputStream is = mock(ByteArrayInputStream.class);
-		when(is.read()).thenReturn(0);
+		try (ByteArrayInputStream is = mock(ByteArrayInputStream.class)) {
+			when(new Integer(is.read())).thenReturn(new Integer(0));
 
-		MapFactory map = new MapFactory(new ArrayList<Code>());
-		map.generate(is);
+			MapFactory map = new MapFactory(new ArrayList<Code>());
+			map.getMap(is);
+		}
+
 	}
 
 }

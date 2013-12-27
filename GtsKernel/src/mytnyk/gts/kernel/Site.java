@@ -6,7 +6,7 @@ import java.util.ListIterator;
 
 final public class Site {
 
-	private ArrayList<Object> mObjects = new ArrayList<Object>();
+	private ArrayList<Object> mObjects = new ArrayList<>();
 	private final Terrain mTerrain;
 
 	public Site(Terrain t) {
@@ -32,7 +32,8 @@ final public class Site {
 		return mTerrain;
 	}
 
+	@Override
 	public String toString() {
-		return mTerrain.getType() + " " + Arrays.toString(mObjects.toArray());
+		return mTerrain.getType() + " " + Arrays.toString(mObjects.toArray()); //$NON-NLS-1$
 	}
 }

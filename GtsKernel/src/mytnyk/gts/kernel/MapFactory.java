@@ -18,26 +18,26 @@ public class MapFactory {
 			if (c.getValue().equalsIgnoreCase(value))
 				return c;
 		}
-		throw new RuntimeException("Invalid code value!");
+		throw new RuntimeException("Invalid code value!"); //$NON-NLS-1$
 	}
 
-	private ArrayList<String[]> getCodeValues(InputStream is) {
+	private static ArrayList<String[]> getCodeValues(InputStream is) {
 
-		ArrayList<String[]> codeValues = new ArrayList<String[]>();
+		ArrayList<String[]> codeValues = new ArrayList<>();
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 			String line;
 
 			while ((line = reader.readLine()) != null)
-				codeValues.add(line.split(" "));
+				codeValues.add(line.split(" ")); //$NON-NLS-1$
 		}
 		catch (IOException e) {
-			throw new RuntimeException("Failed to parse map input stream!", e);
+			throw new RuntimeException("Failed to parse map input stream!", e); //$NON-NLS-1$
 		}
 		return codeValues;
 	}
 	
-	public Code[][] generate(InputStream is) {
+	public Code[][] getMap(InputStream is) {
 
 		ArrayList<String[]> codeValues = getCodeValues(is);
 
@@ -48,7 +48,7 @@ public class MapFactory {
 		for (int y = 0; y < h; y++) {
 			String[] row = codeValues.get(y);
 			if (row.length != w)
-				throw new RuntimeException("Input steam has different number of elements in rows!");
+				throw new RuntimeException("Input steam has different number of elements in rows!"); //$NON-NLS-1$
 			for (int x = 0; x < w; x++)
 				map[x][y] = getCodeByValue(row[x]);
 		}

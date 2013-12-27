@@ -9,14 +9,10 @@ public class ObjectFactory {
 		mList = list;
 	}
 
-	public Object getObject(String type) {
+	public Object createObject(String type) {
 		for (Object t : mList)
 			if (t.getType().equalsIgnoreCase(type))
-				try {
-					return t.clone();
-				} catch (CloneNotSupportedException e) {
-					throw new RuntimeException("Implement clone method!", e);
-				}
-		throw new RuntimeException("Object type is not supported!");
+				return new Object(t);
+		throw new RuntimeException("Object type is not supported!"); //$NON-NLS-1$
 	}
 }

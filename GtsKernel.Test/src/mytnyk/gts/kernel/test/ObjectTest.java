@@ -8,14 +8,15 @@ import mytnyk.gts.kernel.Object;
 
 public class ObjectTest {
 
+	@SuppressWarnings("static-method")
 	@Test
 	public void testObject() {
-		String type = "obj type";
-		String behaviur = "obj behavior";
-		String speed = "ultrafast";
-		String terrain = "highway";
-		String take = "key";
-		String kill = "alien";
+		String type = "obj type"; //$NON-NLS-1$
+		String behaviur = "obj behavior"; //$NON-NLS-1$
+		String speed = "ultrafast"; //$NON-NLS-1$
+		String terrain = "highway"; //$NON-NLS-1$
+		String take = "key"; //$NON-NLS-1$
+		String kill = "alien"; //$NON-NLS-1$
 		Object obj = new Object(type, behaviur);
 		obj.setSpeed(speed);
 		obj.addTerrain(terrain);
@@ -32,26 +33,28 @@ public class ObjectTest {
 		assertFalse(obj.canTake(kill));
 	}
 	
+	@SuppressWarnings("static-method")
 	@Test
 	public void whatDefaultSpeed() {
-		Object obj = new Object("obj type", "obj behavior");
+		Object obj = new Object("obj type", "obj behavior"); //$NON-NLS-1$ //$NON-NLS-2$
 
 		assertNull(obj.getSpeed());
 	}
 	
+	@SuppressWarnings("static-method")
 	@Test
-	public void testCopy() throws CloneNotSupportedException {
-		Object obj = new Object("obj type", "obj behavior");
-		obj.addTake("key");
+	public void testCopy() {
+		Object obj = new Object("obj type", "obj behavior"); //$NON-NLS-1$ //$NON-NLS-2$
+		obj.addTake("key"); //$NON-NLS-1$
 
-		Object obj2 = obj.clone();
+		Object obj2 = new Object(obj);
 
-		obj.addKill("victim");
-		obj.setSpeed("fast");
+		obj.addKill("victim"); //$NON-NLS-1$
+		obj.setSpeed("fast"); //$NON-NLS-1$
 
 		assertEquals(obj.getBehavior(), obj2.getBehavior());
-		assertTrue(obj2.canTake("key"));
-		assertFalse(obj2.canKill("victim"));
+		assertTrue(obj2.canTake("key")); //$NON-NLS-1$
+		assertFalse(obj2.canKill("victim")); //$NON-NLS-1$
 		assertNull(obj2.getSpeed());
 	}
 

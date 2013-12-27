@@ -8,9 +8,10 @@ import org.junit.Test;
 
 public class TextureTest {
 
+	@SuppressWarnings("static-method")
 	@Test
 	public void testTexture() {
-		String str = "some name";
+		String str = "some name"; //$NON-NLS-1$
 		Texture tex = new Texture(str);
 		assertEquals(str, tex.getName());
 	}

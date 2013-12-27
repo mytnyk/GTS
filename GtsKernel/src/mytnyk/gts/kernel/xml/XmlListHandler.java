@@ -10,10 +10,10 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class XmlListHandler extends DefaultHandler {
 
-	private Hashtable<String, String> mProperties = new Hashtable<String, String>();
+	private Hashtable<String, String> mProperties = new Hashtable<>();
 	private IListOfObjects mTargetList;
 
-	private Stack<String> mTags = new Stack<String>();
+	private Stack<String> mTags = new Stack<>();
 
 	public XmlListHandler(IListOfObjects targetList) {
 		mTargetList = targetList;

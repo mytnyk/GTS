@@ -13,6 +13,6 @@ public class TerrainFactory {
 		for (Terrain t : mList)
 			if (t.getType().equalsIgnoreCase(type))
 				return t;
-		throw new RuntimeException("Terrain type is not supported!");
+		throw new RuntimeException("Terrain type is not supported!"); //$NON-NLS-1$
 	}
 }

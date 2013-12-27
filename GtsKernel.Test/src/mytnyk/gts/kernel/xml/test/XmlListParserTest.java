@@ -20,15 +20,16 @@ public class XmlListParserTest {
     @Rule
     public ExpectedException thrown= ExpectedException.none();
     
+	@SuppressWarnings("static-method")
 	@Test
 	public void testXmlListParser() {
 		IListOfObjects mockedList = mock(IListOfObjects.class);
-		when(mockedList.getObjectTag()).thenReturn("tag");
+		when(mockedList.getObjectTag()).thenReturn("tag"); //$NON-NLS-1$
 
-		Hashtable<String, String> ht = new Hashtable<String, String>();
-		ht.put("prop", "value");
+		Hashtable<String, String> ht = new Hashtable<>();
+		ht.put("prop", "value"); //$NON-NLS-1$ //$NON-NLS-2$
 
-		String str = "<list><tag><prop>value</prop></tag></list>";
+		String str = "<list><tag><prop>value</prop></tag></list>"; //$NON-NLS-1$
 		InputStream is = new ByteArrayInputStream(str.getBytes());
 
 		XmlListParser p = new XmlListParser();
@@ -40,14 +41,14 @@ public class XmlListParserTest {
 	@Test
 	public void canThrowException() {
 		IListOfObjects mockedList = mock(IListOfObjects.class);
-		when(mockedList.getObjectTag()).thenReturn("tag");
+		when(mockedList.getObjectTag()).thenReturn("tag"); //$NON-NLS-1$
 		
-		String str = "some invalid xml";
+		String str = "some invalid xml"; //$NON-NLS-1$
 		InputStream is = new ByteArrayInputStream(str.getBytes());
 		XmlListParser p = new XmlListParser();
 		
 		thrown.expect(RuntimeException.class);
-		thrown.expectMessage("Failed to parse");
+		thrown.expectMessage("Failed to parse"); //$NON-NLS-1$
 		
 		p.parse(is, mockedList);
 	}
