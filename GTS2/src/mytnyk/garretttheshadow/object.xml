@@ -8,14 +8,14 @@
 		<Type>Creature</Type>
 		<Behavior>Chaotic</Behavior>
 		<Terrain>Road</Terrain>
-		<Speed>2</Speed>
+		<Speed>3</Speed>
 		<Kill>Human</Kill>
 	</Object>
 	<Object>
 		<Type>Human</Type>
-		<Behavior>Chaotic</Behavior>
+		<Behavior>Manual</Behavior>
 		<Terrain>Road Tree</Terrain>
-		<Speed>1</Speed>
+		<Speed>2</Speed>
 		<Take>Key</Take>
 	</Object>
 </Objects>

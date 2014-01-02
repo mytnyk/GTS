@@ -11,9 +11,11 @@ public class TextureTest {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testTexture() {
-		String str = "some name"; //$NON-NLS-1$
-		Texture tex = new Texture(str);
-		assertEquals(str, tex.getName());
+		String name = "some name"; //$NON-NLS-1$
+		String file = "some file"; //$NON-NLS-1$
+		Texture tex = new Texture(name, file);
+		assertEquals(name, tex.getName());
+		assertEquals(file, tex.getFile());
 	}
 
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Textures>
+	<Texture>
+		<Name>Road</Name>
+		<File>road.bmp</File>
+	</Texture>
+	<Texture>
+		<Name>Tree</Name>
+		<File>tree.bmp</File>
+	</Texture>
+	<Texture>
+		<Name>Wall</Name>
+		<File>wall.bmp</File>
+	</Texture>
+</Textures>

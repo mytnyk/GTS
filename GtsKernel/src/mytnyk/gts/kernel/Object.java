@@ -7,7 +7,7 @@ final public class Object {
 	final private String mType;
 	final private String mBehavior;
 	private ArrayList<String> mTerrain;
-	private String mSpeed;
+	private float mSpeed = 0.f;
 	private ArrayList<String> mTake;
 	private ArrayList<String> mKill;
 
@@ -37,11 +37,11 @@ final public class Object {
 		return mBehavior;
 	}
 
-	public String getSpeed() {
+	public float getSpeed() {
 		return mSpeed;
 	}
 
-	public void setSpeed(String speed) {
+	public void setSpeed(float speed) {
 		mSpeed = speed;
 	}
 

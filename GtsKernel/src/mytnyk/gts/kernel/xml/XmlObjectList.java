@@ -39,7 +39,7 @@ public class XmlObjectList implements IListOfObjects {
 
 		String speed = properties.get(mSpeed);
 		if (speed != null)
-			t.setSpeed(speed);
+			t.setSpeed(Float.parseFloat(speed));
 
 		String take_list = properties.get(mTake);
 		if (take_list != null)

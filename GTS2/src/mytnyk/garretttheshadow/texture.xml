@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Textures>
+	<Texture>
+		<Name>Road</Name>
+		<File>road.bmp</File>
+	</Texture>
+	<Texture>
+		<Name>Tree</Name>
+		<File>tree.bmp</File>
+	</Texture>
+	<Texture>
+		<Name>Wall</Name>
+		<File>mud.bmp</File>
+	</Texture>
+	<Texture>
+		<Name>Finish</Name>
+		<File>finish.bmp</File>
+	</Texture>
+	<Texture>
+		<Name>Human</Name>
+		<File>aze1.bmp</File>
+	</Texture>
+	<Texture>
+		<Name>Creature</Name>
+		<File>m1.bmp</File>
+	</Texture>
+</Textures>

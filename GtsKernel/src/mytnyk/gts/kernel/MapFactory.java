@@ -46,7 +46,7 @@ public class MapFactory {
 
 		Code[][] map = new Code[w][h];
 		for (int y = 0; y < h; y++) {
-			String[] row = codeValues.get(y);
+			String[] row = codeValues.get(h - 1 - y);
 			if (row.length != w)
 				throw new RuntimeException("Input steam has different number of elements in rows!"); //$NON-NLS-1$
 			for (int x = 0; x < w; x++)

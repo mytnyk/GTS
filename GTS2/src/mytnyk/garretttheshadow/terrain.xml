@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Terrains>
+	<Terrain>
+		<Type>Road</Type>
+	</Terrain>
+	<Terrain>
+		<Type>Tree</Type>
+	</Terrain>
+	<Terrain>
+		<Type>Wall</Type>
+	</Terrain>
+	<Terrain>
+		<Type>Finish</Type>
+	</Terrain>
+</Terrains>

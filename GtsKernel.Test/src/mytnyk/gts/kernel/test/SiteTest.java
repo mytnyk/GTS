@@ -14,13 +14,18 @@ public class SiteTest {
 	@Test
 	public void test() {
 		Site s = new Site(new Terrain("highway")); //$NON-NLS-1$
-		s.addObject(new Object("key", "static")); //$NON-NLS-1$ //$NON-NLS-2$
+		Object o = new Object("key", "static");//$NON-NLS-1$ //$NON-NLS-2$
+		s.addObject(o); 
 
 		assertTrue(s.hasObject("key")); //$NON-NLS-1$
 		assertFalse(s.hasObject("door")); //$NON-NLS-1$
 		assertEquals(s.getObjects().next().getType(), "key"); //$NON-NLS-1$
 		assertEquals(s.getTerrain().getType(), "highway"); //$NON-NLS-1$
 		assertEquals(s.toString(), "highway [key]"); //$NON-NLS-1$
+		
+		s.removeObject(o); 
+		assertFalse(s.hasObject(o));
+		assertFalse(s.hasObject("key"));//$NON-NLS-1$
 	}
 
 }

@@ -36,4 +36,12 @@ final public class Site {
 	public String toString() {
 		return mTerrain.getType() + " " + Arrays.toString(mObjects.toArray()); //$NON-NLS-1$
 	}
+
+	public boolean hasObject(Object obj) {
+		return mObjects.contains(obj);
+	}
+
+	public void removeObject(Object obj) {
+		mObjects.remove(obj);
+	}
 }

@@ -25,7 +25,7 @@ public class XmlObjectListTest {
 		ht.put("Terrain", "Road Tree"); //$NON-NLS-1$ //$NON-NLS-2$
 		ht.put("Kill", "Ant"); //$NON-NLS-1$ //$NON-NLS-2$
 		ht.put("Take", "Grass"); //$NON-NLS-1$ //$NON-NLS-2$
-		ht.put("Speed", "Very slow"); //$NON-NLS-1$ //$NON-NLS-2$
+		ht.put("Speed", "2"); //$NON-NLS-1$ //$NON-NLS-2$
 
 		list.add(ht);
 
@@ -33,6 +33,7 @@ public class XmlObjectListTest {
 		assertEquals(l.size(), 1);
 		assertEquals(l.get(0).getType(), "Maverick"); //$NON-NLS-1$
 		assertTrue(l.get(0).hasTerrain("Tree")); //$NON-NLS-1$
+		assertTrue(l.get(0).getSpeed() == 2.f);
 	}
 
 }
