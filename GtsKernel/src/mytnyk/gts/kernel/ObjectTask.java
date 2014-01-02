@@ -1,5 +1,7 @@
 package mytnyk.gts.kernel;
 
+import java.util.ListIterator;
+
 public class ObjectTask implements Runnable {
 
 	private final Object mObject;
@@ -40,6 +42,24 @@ public class ObjectTask implements Runnable {
 							mObject.hasTerrain(newSite.getTerrain().getType())) {
 						oldSite.removeObject(mObject); // change position of object in region
 						newSite.addObject(mObject);
+					}
+
+					if (newSite != null) {
+						// perform kills
+						ListIterator<Object> it1 = newSite.getObjects();
+						while (it1.hasNext()) {
+							Object o1 = it1.next();
+							ListIterator<Object> it2 = newSite.getObjects();
+							while (it2.hasNext()) {
+								Object o2 = it2.next();
+								if (o1 != o2) {
+									if (o1.canKill(o2.getType()))
+										newSite.removeObject(o2);
+									if (o2.canKill(o1.getType()))
+										newSite.removeObject(o1);
+								}
+							}
+						}
 					}
 				}
 			}

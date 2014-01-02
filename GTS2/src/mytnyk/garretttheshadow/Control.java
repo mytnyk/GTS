@@ -1,6 +1,6 @@
 package mytnyk.garretttheshadow;
 
-import android.util.Log;
+//import android.util.Log;
 import mytnyk.gts.kernel.Direction;
 import mytnyk.gts.kernel.ManualStrategy;
 import android.view.MotionEvent;
@@ -15,7 +15,7 @@ public class Control implements OnTouchListener {
 		NONE,
 		MOVEMENT,
 		SCALE,
-	};
+	}
 	private CurrentAction mAction = CurrentAction.NONE;
 
 	public Control(Scene scene)	{
@@ -46,7 +46,7 @@ public class Control implements OnTouchListener {
 				float x = event.getX(id0); // [0, 0] - left upper corner
 				float y = event.getY(id0);
 				
-				Log.d("ACTION", Float.toString(x) + ":" + Float.toString(y));
+				//Log.d("ACTION", Float.toString(x) + ":" + Float.toString(y));
 				
 				if (Math.abs(x - 0.5f*w) > Math.abs(y - 0.5f*h)) {
 					if (x > 0.5f*w) {

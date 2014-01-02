@@ -59,7 +59,7 @@ public class Scene implements GLSurfaceView.Renderer {
 					ListIterator<Object> it = s.getObjects();
 					while (it.hasNext()) {
 						Object o = it.next();
-						if (o.getType().equalsIgnoreCase("Human")) {
+						if (o.getType().equalsIgnoreCase("Human")) { //$NON-NLS-1$
 							hx = x; hy = y;
 						}
 					}

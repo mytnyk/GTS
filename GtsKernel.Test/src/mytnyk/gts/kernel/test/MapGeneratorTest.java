@@ -34,7 +34,7 @@ public class MapGeneratorTest {
 		MapFactory mapGen = new MapFactory(codes);
 		Code[][] m = mapGen.getMap(new ByteArrayInputStream(str.getBytes()));
 
-		Code[][] gm = new Code[][] { {w, w}, {w, s}, {w, w} };
+		Code[][] gm = new Code[][] { {w, w}, {s, w}, {w, w} };
 		assertTrue(Arrays.deepEquals(m, gm));
 	}
 
